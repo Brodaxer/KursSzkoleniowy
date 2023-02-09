@@ -1,4 +1,4 @@
-# KursSzkoleniowy
+# KursySzkolenia
 
 Tworzymy aplikację do sprzedaży kursów oraz szkoleń. Nasza wirtualna firma sprzedaje dwa rodzaje kursów:
 
