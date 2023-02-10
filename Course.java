@@ -4,7 +4,7 @@ class Course {
     private String name;
     private String descripiton;
 
-    public Course( double price, String name, String descripiton) {
+    public Course(double price, String name, String descripiton) {
 
         this.price = price;
         this.name = name;
@@ -26,42 +26,54 @@ class Course {
     public void setDescripiton(String descripiton) {
         this.descripiton = descripiton;
     }
+    
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
 
 class OnlineCourse extends Course {
-
+    static final String ID = "JAVA-ONLINE-123";
     private int videoLenght;
     private int timeToFinish;
 
-    public OnlineCourse( double price, String name, String descripiton, int videoLenght, int timeToFinish) {
-        super( price, name, descripiton);
+    public OnlineCourse(double price, String name, String descripiton, int videoLenght, int timeToFinish) {
+        super(price, name, descripiton);
         this.videoLenght = videoLenght;
         this.timeToFinish = timeToFinish;
-        setId("JAVA-ONLINE-123");
+        setId(ID);
     }
 
-    @Override
-    public void setId(String id) {
-        super.setId(id);
+    public void onlineInfo() {
+        System.out.println(ID + " " +getName()+" "+getPrice()+" "+getDescripiton()+" "+videoLenght+" "+timeToFinish);
     }
+
 }
 
 class OffonlineCourse extends Course {
-
+    static final String ID = "JAVA-STACJO-WRO-234";
     private String town;
     private int numberOfLessons;
 
-    public OffonlineCourse( double price, String name, String descripiton, String town, int numberOfLessons) {
+    public OffonlineCourse(double price, String name, String descripiton, String town, int numberOfLessons) {
         super(price, name, descripiton);
         this.town = town;
         this.numberOfLessons = numberOfLessons;
-        setId("JAVA-STACJO-WRO-234");
+        setId(ID);
+    }
+    public void offInfo (){
+        System.out.println(ID+" "+getName()+" "+getPrice()+" "+getDescripiton()+" "+town+" "+numberOfLessons);
     }
 
-    @Override
-    public void setId(String id) {
-        super.setId(id);
-    }
+
+
+
+
 }
 
 class BootCamp extends OnlineCourse {
@@ -69,17 +81,17 @@ class BootCamp extends OnlineCourse {
     private String lastName;
     private int privateLessons;
 
-    public BootCamp( double price, String name, String descripiton, int videoLenght, int timeToFinish, String firstName,
+    public BootCamp(double price, String name, String descripiton, int videoLenght, int timeToFinish, String firstName,
                     String lastName, int privateLessons) {
         super(price, name, descripiton, videoLenght, timeToFinish);
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.privateLessons=privateLessons;
-        setId("JAVA-ONLINE-123");
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.privateLessons = privateLessons;
+        setId(ID);
+    }
+    public void bootInfo(){
+        onlineInfo();
+        System.out.println(firstName+" "+lastName+" "+privateLessons);
     }
 
-    @Override
-    public void setId(String id) {
-        super.setId(id);
-    }
 }
