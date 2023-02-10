@@ -4,7 +4,7 @@ class Course {
     private String name;
     private String descripiton;
 
-    public Course(double price, String name, String descripiton) {
+    public Course(String id,double price, String name, String descripiton) {
 
         this.price = price;
         this.name = name;
@@ -26,7 +26,7 @@ class Course {
     public void setDescripiton(String descripiton) {
         this.descripiton = descripiton;
     }
-    
+
 
     public double getPrice() {
         return price;
@@ -43,16 +43,23 @@ class OnlineCourse extends Course {
     private int timeToFinish;
 
     public OnlineCourse(double price, String name, String descripiton, int videoLenght, int timeToFinish) {
-        super(price, name, descripiton);
+        super(ID,price, name, descripiton);
         this.videoLenght = videoLenght;
         this.timeToFinish = timeToFinish;
-        setId(ID);
+
     }
 
     public void onlineInfo() {
         System.out.println(ID + " " +getName()+" "+getPrice()+" "+getDescripiton()+" "+videoLenght+" "+timeToFinish);
     }
 
+    @Override
+    public String toString() {
+        return "OnlineCourse{" +
+                "videoLenght=" + videoLenght +
+                ", timeToFinish=" + timeToFinish +
+                '}';
+    }
 }
 
 class OffonlineCourse extends Course {
@@ -61,10 +68,10 @@ class OffonlineCourse extends Course {
     private int numberOfLessons;
 
     public OffonlineCourse(double price, String name, String descripiton, String town, int numberOfLessons) {
-        super(price, name, descripiton);
+        super(ID,price, name, descripiton);
         this.town = town;
         this.numberOfLessons = numberOfLessons;
-        setId(ID);
+        
     }
     public void offInfo (){
         System.out.println(ID+" "+getName()+" "+getPrice()+" "+getDescripiton()+" "+town+" "+numberOfLessons);
